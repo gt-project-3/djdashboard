@@ -1,24 +1,34 @@
 import React from 'react';
 
-import { Button, Textfield } from './index';
+import { Form } from 'react-controlled-form'
+import { render } from 'react-dom'
+import { createStore, combineReducers } from 'redux'
+import { Provider } from 'react-redux'
+import { formReducer } from 'react-controlled-form'
 
-export default function Form(props) {
-  const { handleChange, handleClick  } = props;
-  const { email, username, password, eventDate, eventAddress, cover} = props.data
-  return (
-    <form>
-      <label>I'm A Form</label>
-      <Textfield name="email" type="email" valueProp={email} onChange={handleChange} />
-      <Textfield name="password" type="password" valueProp={password} onChange={handleChange} />
-      <Textfield
-        name="eventDate"
-        type="datetime-local"
-        valueProp={eventDate}
-        onChange={handleChange}
-      />
-      <Textfield name="eventAddress" type="address" valueProp={eventAddress} onChange={handleChange} />
-      <Textfield name="cover" type="number" valueProp={cover} onChange={handleChange} />
-      <Button handleClick={handleClick} />
-    </form>
-  );
+import App from '../App'
+
+const store = createStore(combineReducers({
+  ...formReducer
+}))
+
+render((
+    <Provider store={store}>
+      <App/>
+    </Provider>
+  ),
+  /* your root DOM node */
+)
+const initialFields = {
+  firstname: {
+    isRequired: true
+  },
+  accepted_terms: {
+    value: false,
+    isValid: false,
+    isRequired: true
+  }
 }
+
+// Usage
+<Form formId="user" initialFields={initialFields} render={...} />
