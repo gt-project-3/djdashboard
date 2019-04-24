@@ -1,35 +1,28 @@
 const express = require('express');
 
-const router = express.Router();
-
 const mongoose = require('mongoose');
+const routes = require('./routes');
+const app = express();
+const PORT = process.env.PORT || 3001;
 
-mongoose.connect('mongodb://localhost/djdashboard', { useNewUrlParser: true });
+// Define middleware here
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+// Add routes, both API and view
+app.use(routes);
 
-const Events = require('../models/article');
+mongoose.set('useCreateIndex', true);
 
-router.get('/', (req, res, next) => {
-  res.json();
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/djdashboard', {
+  useNewUrlParser: true,
 });
 
-router.get('/articles', (req, res, next) => {
-  Events.find({})
-    .then((events) => {
-      res.render('index', events);
-    })
-    .catch((err) => res.render('error', err));
+// Start the API server
+app.listen(PORT, function() {
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
-// router.post('/addcomment/:id', (req, res, next) => {
-//   Article.findByIdAndUpdate(
-//     req.params.id,
-//     {
-//       $push: { comments: req.body.comment },
-//     },
-//     (err, data) => {
-//       if (err)
-//         return res.status(401).json({ message: 'failed to add comment' });
-//       res.json({ message: 'Comment added succesfully', data });
-//     },
-//   );
-// });
-module.exports = router;
