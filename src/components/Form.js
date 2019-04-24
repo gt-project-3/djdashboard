@@ -8,16 +8,16 @@ export default function Form(props) {
   return (
     <form>
       <label>I'm A Form</label>
-      <Textfield name="email" type="email" valueProp={email} onChange={handleChange} />
-      <Textfield name="password" type="password" valueProp={password} onChange={handleChange} />
+      <Textfield name="email" type="email" value={email} onChange={handleChange} />
+      <Textfield name="password" type="password" value={password} onChange={handleChange} />
       <Textfield
         name="eventDate"
         type="datetime-local"
-        valueProp={eventDate}
+        value={eventDate}
         onChange={handleChange}
       />
-      <Textfield name="eventAddress" type="address" valueProp={eventAddress} onChange={handleChange} />
-      <Textfield name="cover" type="number" valueProp={cover} onChange={handleChange} />
+      <Textfield name="eventAddress" type="address" value={eventAddress} onChange={handleChange} />
+      <Textfield name="cover" type="number" value={cover} onChange={handleChange} />
       <Button handleClick={handleClick} />
     </form>
   );
