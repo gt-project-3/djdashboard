@@ -3,10 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "mongoose": "^5.5.2",
+    "moment": "^2.24.0",
     "react": "^16.8.6",
+    "react-addons-shallow-compare": "^15.6.2",
+    "react-controlled-form": "^3.2.0",
+    "react-dates": "12.6.0",
     "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8"
+    "react-redux": "^7.0.2",
+    "react-scripts": "2.1.8",
+    "redux": "^4.0.1",
+    "redux-form": "^8.2.0",
+    "reselect": "^4.0.0",
+    "tachyons": "^4.11.1"
   },
   "scripts": {
     "start": "react-scripts start",
