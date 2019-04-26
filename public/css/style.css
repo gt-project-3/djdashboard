@@ -1,0 +1,17 @@
+.w-80 {
+    align-content: center !important;
+    align-items: center !important
+
+}
+
+.w-100 {
+    width: 50% !important;
+}
+.textField {
+    width: 50% !important;
+
+}
+#form {
+    align-items: center;
+    align-content: center;
+}
