@@ -1,84 +1,87 @@
 import React from 'react';
-import { Field } from 'redux-form';
+import { Field, reduxForm} from 'redux-form';
 import Text from '../components/text';
 import Select from '../components/select';
 import Radio from '../components/radio';
 import Checkbox from '../components/checkbox';
 import Datepicker from '../components/datepicker';
 import { required } from './form.validators'
-
-
-
-
-
-export const FormComponent = ({ handleSubmit, onSubmit, formValues, change }) => {
+import logo from './images/Layer 1.png'; // with import
+export const FormComponent = ({ handleSubmit, pristine, submitting, onSubmit, reset, formValues, change }) => {
   return (
     <div className="flex flex-column justify-center items-center">
-      <h1>My Very own Form</h1>
+      <img src={logo} alt="company logo" />
+      {/* <h1>YoDj Check-In</h1> */}
       <form
+        id="form"
         className="w-80"
         onSubmit={handleSubmit(onSubmit)}
       >
         <Field
-          name="firstName"
-          label="First Named"
-                  component={Text}
-                  validate={required}
-        />
-        <Field
-          name="lastName"
-          label="Last Name"
+          className="textField"
+          name="Dj Name"
+          label="Dj Name"
                   component={Text}
                   validate={required}
                   
         />
         <Field
+          className="textField"
+          name="Event Address"
+          label="Event Address"
+                  component={Text}
+                  validate={required}
+        />
+        
+        
+        <Field
+          className="textField"          
           name="email"
           label="Email"
                   component={Text}
                   validate={required}
                   
               />
-              <Field
-          name="meatChoice"
-          label="Meat Choice"
+        <Field
+          className="textField"          
+          name="Cover Price"
+          label="Cover Price"
           component={Select}
           options={{
-            pork: 'Pork',
-            beef: 'Beef',
-            chicken: 'Chicken'
+            none: 'Free',
+            below20: '$20 or under',
+            higher20: '$20 or higher'
           }}
               />
               <Field
-          name="spiceLevel"
-          label="Spice Level"
+          name="Time of Day"
+          label="Time of Day"
           component={Radio}
           options={{
-            mild: 'Mild',
-            medium: 'Medium',
-            hot: 'hot'
+            day: 'Day',
+            evening: 'Evening',
+            night: 'Night'
           }}
               />
               <Field
-          name="wantsFries"
-          label="Would you like fries with that?"
+          name="moreThanONe"
+          label="Are you the only Dj?"
           component={Checkbox}
               />
                <Field
-          name="orderDate"
-          label="Order Date"
+          name="eventDate"
+          label="Event Date"
           component={Datepicker}
           change={change}
         />
         <button
-          type="submit"
-          className="link br2 bg-blue white dim pa3 f6 sans-serif b--blue ba"
-        >
-          Submit
+          type="submit" className="link br2 bg-black white dim pa3 f6 sans-serif b--black ba" disabled={pristine || submitting} onClick={reset}>Submit
         </button>
       </form>
     </div>
   );
 }
 
-export default FormComponent;
+export default reduxForm({
+  form: 'FormComponent'
+})(FormComponent)
