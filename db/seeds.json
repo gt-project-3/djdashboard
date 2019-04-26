@@ -1,0 +1,21 @@
+{
+  "event": {
+    "playlists": ["['Song 1','Song 2', 'Song 3']"],
+    "performing_artisits": ["Dj James", "Dj Storm"],
+    "venue": "Terminal",
+    "address": "555 test St",
+    "date_of": "2019-04-10T04:00:00.000Z",
+    "cover": 5
+  },
+  "dj": {
+    "email": "test@test.com",
+    "pasword": "secret",
+    "alias": "Dj Storm",
+    "playlist": ["Song1", "Song2", "Song3"],
+    "events": []
+  },
+  "user": {
+    "email": "danny@dorito.com",
+    "password": "SecretNacho"
+  }
+}
