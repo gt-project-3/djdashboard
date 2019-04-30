@@ -14,7 +14,7 @@ const DjSchema = new Schema({
       required:true,
   },
 
-  alias:{
+  djName:{
       type: String,
       unique: true,
       required:true,

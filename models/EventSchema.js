@@ -26,8 +26,12 @@ const EventSchema = new Schema({
     required: false,
   },
   performing_artisits: {
-      type:Array,
-      required: false,
+    type: Array,
+    required: false,
+  },
+  messages:{
+    type:Array,
+    required:false,
   }
 });
 

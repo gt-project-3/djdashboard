@@ -7,13 +7,13 @@ export class Datepicker extends React.Component {
     super(props);
     this.state = {
       date: moment(),
-      focused: false
+      focused: false,
     };
   }
   handleDateChange = (date) => {
     this.setState({ date });
-    this.props.change(this.props.input.name, date)
-  }
+    this.props.change(this.props.input.name, date);
+  };
   render() {
     return (
       <div className="mv4 w-100">
