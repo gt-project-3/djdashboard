@@ -28,4 +28,12 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
+  addMessage: function(req, res) {
+    db.Event.findOneAndUpdate(
+      { _id: req.params.id },
+      { $push: { messages: req.body} },{new:true}
+    )
+      .then((dbModel) => res.json(dbModel.messages))
+      .catch((err) => res.status(422).json(err));
+  },
 };

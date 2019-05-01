@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "dotenv": "^7.0.0",
-    "mongoose": "^5.5.2",
     "moment": "^2.24.0",
+    "mongoose": "^5.5.2",
     "react": "^16.8.6",
     "react-addons-shallow-compare": "^15.6.2",
     "react-controlled-form": "^3.2.0",
