@@ -1,4 +1,5 @@
 const db = require('../models');
+var uuid = require('react-native-uuid');
 
 module.exports = {
   findAll: function(req, res) {
@@ -29,6 +30,7 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   addMessage: function(req, res) {
+    req.body._id = uuid.v1();
     db.Event.findOneAndUpdate(
       { _id: req.params.id },
       { $push: { messages: req.body } },
