@@ -37,4 +37,6 @@ const EventSchema = new Schema({
 
 const Event = mongoose.model('Event', EventSchema);
 
+// Event.watch().on('change',data => console.log(data))
+
 module.exports = Event;

@@ -34,5 +34,9 @@ router
   .put(controllers.Event.update)
   .delete(controllers.Event.remove);
 
-router.route('/event/message/:id').put(controllers.Event.addMessage);
+router
+  .route('/event/message/:id')
+  .get(controllers.Event.getAllMessages)
+  .put(controllers.Event.addMessage);
+
 module.exports = router;

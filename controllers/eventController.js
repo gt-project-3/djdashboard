@@ -31,8 +31,14 @@ module.exports = {
   addMessage: function(req, res) {
     db.Event.findOneAndUpdate(
       { _id: req.params.id },
-      { $push: { messages: req.body} },{new:true}
+      { $push: { messages: req.body } },
+      { new: true },
     )
+      .then((dbModel) => res.json(dbModel.messages))
+      .catch((err) => res.status(422).json(err));
+  },
+  getAllMessages: function(req, res) {
+    db.Event.findById(req.params.id)
       .then((dbModel) => res.json(dbModel.messages))
       .catch((err) => res.status(422).json(err));
   },
