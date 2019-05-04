@@ -12,6 +12,7 @@
     "react-controlled-form": "^3.2.0",
     "react-dates": "12.6.0",
     "react-dom": "^16.8.6",
+    "react-native-uuid": "^1.4.9",
     "react-redux": "^7.0.2",
     "react-scripts": "2.1.8",
     "redux": "^4.0.1",
