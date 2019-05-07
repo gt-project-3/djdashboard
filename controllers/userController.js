@@ -1,4 +1,5 @@
 const db = require('../models');
+var uuid = require('react-native-uuid');
 
 // Defining methods for the booksController
 module.exports = {
@@ -8,6 +9,7 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   create: function(req, res) {
+    // req.body.userid = uuid.v1()
     db.User.create(req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
