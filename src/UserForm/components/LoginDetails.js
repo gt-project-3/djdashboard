@@ -21,7 +21,7 @@ const styles = {
     }
   };
 
-class FormUserDetails extends Component {
+class LoginDetails extends Component {
     continue = e => {
         e.preventDefault();
         this.props.nextStep();
@@ -42,7 +42,7 @@ class FormUserDetails extends Component {
         return (
             <MuiThemeProvider >
                 <React.Fragment>
-                    <AppBar title="Enter User Details" />
+                    <AppBar title="Dj Login" />
                     <TextField
                         hintText="Enter your Dj Name"
                         floatingLabelFixed="Dj Name"
@@ -103,7 +103,7 @@ class FormUserDetails extends Component {
   }
 }
 
-FormUserDetails.propTypes = {
+LoginDetails.propTypes = {
     classes: PropTypes.object.isRequired
 };
-export default withStyles(styles)(FormUserDetails)
+export default withStyles(styles)(LoginDetails)

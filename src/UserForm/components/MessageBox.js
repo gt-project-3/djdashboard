@@ -38,7 +38,7 @@ const styles = theme => ({
     },
   });
 
-class FormPersonalDetails extends Component {
+class MessageBox extends Component {
     continue = e => {
         e.preventDefault();
         this.props.nextStep();
@@ -61,7 +61,7 @@ class FormPersonalDetails extends Component {
             <Paper className={classes.root} elevation={10}>
         <Typography component="p">
           Messages will goksssscdksjnkcdcksdnkdjcskkdsccklkccjdddlckckcskccklclld
-          csd   mponents/FormPersonalDetails.js
+          csd   mponents/MessageBox.js
   Line 4:    'TextField' is defined but never used                  no-unused-vars
   Line 45:  'values' is assigned a value but never used            no-unused-vars
   Line 45:  'handleChange' is assigned a value but never used      no-unused-vars
@@ -84,7 +84,7 @@ class FormPersonalDetails extends Component {
   }
 }
 
-FormPersonalDetails.propTypes = {
+MessageBox.propTypes = {
     classes: PropTypes.object.isRequired
 };
-export default withStyles(styles)(FormPersonalDetails)
+export default withStyles(styles)(MessageBox)

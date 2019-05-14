@@ -1,8 +1,8 @@
 /* eslint-disable default-case */
 /* eslint-disable react/jsx-no-undef */
 import React, { Component } from 'react';
-import FormUserDetails from './FormUserDetails';
-import FormPersonalDetails from './FormPersonalDetails';
+import LoginDetails from './LoginDetails';
+import MessageBox from './MessageBox';
 
 export class UserForm extends Component {
     state = {
@@ -50,7 +50,7 @@ export class UserForm extends Component {
         switch (step) {
             case 1: 
                 return (
-                    <FormUserDetails
+                    <LoginDetails
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
@@ -59,7 +59,7 @@ export class UserForm extends Component {
                 )
             case 2:
             return (
-                <FormPersonalDetails
+                <MessageBox
                     prevStep={this.prevStep}
                     handleChange={this.handleChange}
                     values={values}
